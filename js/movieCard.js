@@ -81,6 +81,41 @@ export default function renderMovieCards(
       genre: "accion",
       year: 2023,
     },
+    {
+      img: "img/fastx.png",
+      title: "Fast X",
+      id: 9,
+      genre: "accion",
+      year: 2023,
+    },
+    {
+      img: "img/venomcarnage.png",
+      title: "Venom: Let There Be Carnage",
+      id: 10,
+      genre: "ciencia ficcion",
+      year: 2021,
+    },
+    {
+      img: "img/encanto.png",
+      title: "Encanto",
+      id: 11,
+      genre: "animacion",
+      year: 2021,
+    },
+    {
+      img: "img/forgottenbattle.png",
+      title: "Forgotten Battle",
+      id: 12,
+      genre: "accion",
+      year: 2021,
+    },
+    {
+      img: "img/adamproject.png",
+      title: "The Adam Project",
+      id: 13,
+      genre: "accion",
+      year: 2022,
+    },
   ];
 
   // Filtrar las películas por título, género y año
