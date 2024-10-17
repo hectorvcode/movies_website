@@ -1,16 +1,16 @@
 export default function createSearchForm(renderMovieCards) {
   const form = `
-    <form id="search-form" class="form-inline my-5 d-flex flex-column align-items-center mx-auto">
+    <form id="search-form" class="d-flex justify-content-center align-items-center my-5 mx-auto w-100" style="max-width: 60%;">
       <input
         id="search-input"
-        class="form-control mr-sm-2 w-25 my-3"
+        class="form-control mr-sm-2 w-50"
         type="search"
         placeholder="Escribe el título"
         aria-label="Buscar"
       />
 
       <!-- Filtro por género -->
-      <select id="genre-select" class="form-control my-3 w-25">
+      <select id="genre-select" class="form-control mx-2" style="flex: 1;">
         <option value="">Seleccione el género</option>
         <option value="accion">Acción</option>
         <option value="comedia">Comedia</option>
@@ -20,7 +20,7 @@ export default function createSearchForm(renderMovieCards) {
       </select>
 
       <!-- Filtro por año -->
-      <select id="year-select" class="form-control my-3 w-25">
+      <select id="year-select" class="form-control" style="flex: 1;">
         <option value="">Seleccione el año</option>
         <option value="2024">2024</option>
         <option value="2023">2023</option>
