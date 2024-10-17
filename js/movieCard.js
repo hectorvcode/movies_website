@@ -18,27 +18,81 @@ export function createMovieCard(imageSrc, title, id) {
   `;
 }
 
-// Función para renderizar las tarjetas de películas
-export default function renderMovieCards(searchQuery = "") {
+// Función para renderizar las tarjetas de películas, ahora recibe filtros
+export default function renderMovieCards(
+  searchQuery = "",
+  genreFilter = "",
+  yearFilter = ""
+) {
   const movies = [
-    { img: "img/intensamente2.png", title: "Intensamente 2", id: 1 },
-    { img: "img/deadpool&wolverine.png", title: "Deadpool & Wolverine", id: 2 },
-    { img: "img/despicableme4.png", title: "Despicable Me 4", id: 3 },
-    { img: "img/thewildrobot.png", title: "The Wild Robot", id: 4 },
-    { img: "img/hellboy.png", title: "Hellboy The Crooked Man", id: 5 },
-    { img: "img/alienromulus.png", title: "Alien Romulus", id: 6 },
-    { img: "img/thecrow.png", title: "The Crow", id: 7 },
+    {
+      img: "img/intensamente2.png",
+      title: "Intensamente 2",
+      id: 1,
+      genre: "animacion",
+      year: 2024,
+    },
+    {
+      img: "img/deadpool&wolverine.png",
+      title: "Deadpool & Wolverine",
+      id: 2,
+      genre: "accion",
+      year: 2024,
+    },
+    {
+      img: "img/despicableme4.png",
+      title: "Despicable Me 4",
+      id: 3,
+      genre: "animacion",
+      year: 2024,
+    },
+    {
+      img: "img/thewildrobot.png",
+      title: "The Wild Robot",
+      id: 4,
+      genre: "animacion",
+      year: 2024,
+    },
+    {
+      img: "img/hellboy.png",
+      title: "Hellboy The Crooked Man",
+      id: 5,
+      genre: "accion",
+      year: 2024,
+    },
+    {
+      img: "img/alienromulus.png",
+      title: "Alien Romulus",
+      id: 6,
+      genre: "ciencia ficcion",
+      year: 2024,
+    },
+    {
+      img: "img/thecrow.png",
+      title: "The Crow",
+      id: 7,
+      genre: "drama",
+      year: 2024,
+    },
     {
       img: "img/transformersmechbeasts.png",
       title: "Transformers Mech Beasts",
       id: 8,
+      genre: "accion",
+      year: 2023,
     },
   ];
 
-  // Filtramos las películas si hay un término de búsqueda
-  const filteredMovies = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(searchQuery)
-  );
+  // Filtrar las películas por título, género y año
+  const filteredMovies = movies.filter((movie) => {
+    const matchesSearch = movie.title.toLowerCase().includes(searchQuery);
+    const matchesGenre = genreFilter ? movie.genre === genreFilter : true;
+    const matchesYear = yearFilter
+      ? movie.year.toString() === yearFilter
+      : true;
+
+    return matchesSearch && matchesGenre && matchesYear;
+  });
 
   const movieCardsContainer = document.getElementById("movie-cards");
   movieCardsContainer.innerHTML = filteredMovies
