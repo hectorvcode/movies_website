@@ -1,13 +1,18 @@
 export default function createSearchForm(renderMovieCards) {
   const form = `
     <form id="search-form" class="d-flex justify-content-center align-items-center my-5 mx-auto w-100" style="max-width: 60%;">
-      <input
-        id="search-input"
-        class="form-control mr-sm-2 w-50"
-        type="search"
-        placeholder="Escribe el título"
-        aria-label="Buscar"
-      />
+      <div class="input-group" style="flex: 2;">
+        <span class="input-group-text bg-white">
+          <i class="fas fa-search"></i>
+        </span>
+        <input
+          id="search-input"
+          class="form-control mr-sm-2 w-50"
+          type="search"
+          placeholder="Escribe el título"
+          aria-label="Buscar"
+        />
+      </div>
 
       <!-- Filtro por género -->
       <select id="genre-select" class="form-control mx-2" style="flex: 1;">
