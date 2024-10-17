@@ -1,3 +1,74 @@
 .card {
   cursor: pointer;
 }
+
+/* Estilos para el modal de detalles de película */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body .row {
+  display: flex;
+  align-items: center;
+}
+
+#movieModalImg {
+  max-width: 100%;
+  height: auto;
+}
+
+#movieModalTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#movieModalGenre,
+#movieModalYear,
+#movieModalDescription {
+  font-size: 1.2rem;
+}
+
+#movieModalGenre,
+#movieModalYear {
+  color: #6c757d;
+}
+
+/* Ajustar el ancho del contenedor de comentarios al 75% */
+#commentSection {
+  width: 75%; /* Ocupa tres cuartas partes del espacio */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#commentList {
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%; /* Asegurar que la lista de comentarios ocupe todo el ancho dentro del contenedor */
+}
+
+/* Ajuste de la altura del textarea para comentarios */
+#commentInput {
+  resize: none;
+  width: 100%; /* Asegurar que el input ocupe todo el ancho disponible dentro de su contenedor */
+}
+
+/* Ajuste general del modal para que ocupe más espacio horizontal */
+.modal-dialog {
+  max-width: 80%;
+}
+
+@media (max-width: 768px) {
+  .modal-body .row {
+    flex-direction: column;
+  }
+
+  #movieModalImg {
+    margin-bottom: 15px;
+  }
+
+  /* En pantallas pequeñas, hacer que los comentarios ocupen todo el ancho */
+  #commentSection {
+    width: 100%;
+  }
+}

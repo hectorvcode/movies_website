@@ -25,13 +25,10 @@
       aria-labelledby="movieDetailModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="movieDetailModalLabel">
-              Detalles de la película
-            </h5>
-
+            <h5 class="modal-title" id="movieDetailModalLabel">Detalles de la película</h5>
             <button
               type="button"
               class="btn-close"
@@ -40,39 +37,42 @@
             ></button>
           </div>
           <div class="modal-body">
-            <img
-              id="movieModalImg"
-              src=""
-              class="img-fluid mb-3"
-              alt="Poster de la película"
-            />
-            <h5 id="movieModalTitle"></h5>
-            <p id="movieModalGenre"></p>
-            <p id="movieModalYear"></p>
-            <p id="movieModalDescription"></p>
-
-            <!-- Sección de comentarios -->
-            <h5>Comentarios</h5>
-            <ul id="commentList" class="list-group mb-3">
-              <!-- Aquí se mostrarán los comentarios -->
-            </ul>
-
-            <!-- Formulario para agregar un comentario -->
-            <form id="commentForm">
-              <div class="mb-3">
-                <textarea
-                  class="form-control"
-                  id="commentInput"
-                  rows="3"
-                  placeholder="Escribe tu comentario aquí"
-                  required
-                ></textarea>
+            <div class="row">
+              <div class="col-md-4">
+                <img
+                  id="movieModalImg"
+                  src=""
+                  class="img-fluid mb-3"
+                  alt="Poster de la película"
+                />
               </div>
-              <button type="submit" class="btn btn-primary">
-                Agregar comentario
-              </button>
-            </form>
-            
+              <div class="col-md-8">
+                <h5 id="movieModalTitle"></h5>
+                <p id="movieModalGenre"></p>
+                <p id="movieModalYear"></p>
+                <p id="movieModalDescription"></p>
+              </div>
+            </div>
+
+            <!-- Contenedor de comentarios con 75% de ancho -->
+            <div id="commentSection">
+              <h5 class="mt-4">Comentarios</h5>
+              <ul id="commentList" class="list-group mb-3"></ul>
+
+              <!-- Formulario para agregar un comentario -->
+              <form id="commentForm">
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    id="commentInput"
+                    rows="3"
+                    placeholder="Escribe tu comentario aquí"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Agregar comentario</button>
+              </form>
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -96,11 +96,13 @@
       import createNavbar from "./js/navbar.js";
       import createSearchForm from "./js/searchForm.js";
       import renderMovieCards from "./js/movieCard.js";
+      import { showMovieDetails } from "./js/movieDetails.js"; // Importar el nuevo componente
 
       // Ejecutar los componentes
       createNavbar();
       createSearchForm(renderMovieCards);
       renderMovieCards();
+      window.showMovieDetails = showMovieDetails; // Hacer accesible la función globalmente
     </script>
 
     <script
