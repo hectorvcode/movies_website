@@ -19,18 +19,29 @@ export function createMovieCard(imageSrc, title, id) {
 }
 
 // Función para renderizar las tarjetas de películas
-export default function renderMovieCards() {
+export default function renderMovieCards(searchQuery = "") {
   const movies = [
-    { img: 'img/intensamente2.png', title: 'Intensamente 2', id: 1 },
-    { img: 'img/deadpool&wolverine.png', title: 'Deadpool & Wolverine', id: 2 },
-    { img: 'img/despicableme4.png', title: 'Despicable Me 4', id: 3 },
-    { img: 'img/thewildrobot.png', title: 'The Wild Robot', id: 4 },
-    { img: 'img/hellboy.png', title: 'Hellboy The Crooked Man', id: 5 },
-    { img: 'img/alienromulus.png', title: 'Alien Romulus', id: 6 },
-    { img: 'img/thecrow.png', title: 'The Crow', id: 7 },
-    { img: 'img/transformersmechbeasts.png', title: 'Transformers Mech Beasts', id: 8 },
+    { img: "img/intensamente2.png", title: "Intensamente 2", id: 1 },
+    { img: "img/deadpool&wolverine.png", title: "Deadpool & Wolverine", id: 2 },
+    { img: "img/despicableme4.png", title: "Despicable Me 4", id: 3 },
+    { img: "img/thewildrobot.png", title: "The Wild Robot", id: 4 },
+    { img: "img/hellboy.png", title: "Hellboy The Crooked Man", id: 5 },
+    { img: "img/alienromulus.png", title: "Alien Romulus", id: 6 },
+    { img: "img/thecrow.png", title: "The Crow", id: 7 },
+    {
+      img: "img/transformersmechbeasts.png",
+      title: "Transformers Mech Beasts",
+      id: 8,
+    },
   ];
 
-  const movieCardsContainer = document.getElementById('movie-cards');
-  movieCardsContainer.innerHTML = movies.map(movie => createMovieCard(movie.img, movie.title, movie.id)).join('');
+  // Filtramos las películas si hay un término de búsqueda
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchQuery)
+  );
+
+  const movieCardsContainer = document.getElementById("movie-cards");
+  movieCardsContainer.innerHTML = filteredMovies
+    .map((movie) => createMovieCard(movie.img, movie.title, movie.id))
+    .join("");
 }
